@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/zaizizaizai/private-chat/issues"
   },
-  "homepage": "https://github.com/zaizizaizai/private-chat#readme"
+  "homepage": "https://github.com/zaizizaizai/private-chat#readme",
+  "dependencies": {
+    "socket.io": "^2.0.4"
+  }
 }
