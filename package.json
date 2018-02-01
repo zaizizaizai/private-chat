@@ -1,8 +1,8 @@
 {
-  "name": "chat1",
+  "name": "onechat",
   "version": "1.0.0",
-  "description": "socket.io",
-  "main": "index.js",
+  "description": "base socket.io chat with one",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
