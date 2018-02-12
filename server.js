@@ -18,7 +18,7 @@ var defaultPage = ['index.html','default.html','index.htm','default.htm'];
 // 从命令行参数获取root目录，默认是当前目录:
 var fsRoot = path.join(path.resolve(process.argv[2] || '.'),'/www');
 
-const server = http.createServer((req, res) => {
+const server = http.createServer((req,res) => {
     //获取URL的path
     var pathName = url.parse(req.url).pathname;
 
@@ -65,7 +65,7 @@ const io = require('socket.io')(server);
 
 //JSON.stringify();
 var uSocket = {},
-    user = {};
+    user = [];  //保存在线用户
 
 io.on('connection', (socket) => {
     //成员对象数组    
@@ -84,15 +84,15 @@ io.on('connection', (socket) => {
     socket.on('send private message', function(res){
         //发消息
         console.log(res);
-        if(res.recipient in usocket) {
-            usocket[res.recipient].emit('receive private message', res);
+        if(res.recipient in uSocket) {
+            uSocket[res.recipient].emit('receive private message', res);
         }
     });
 
     socket.on('disconnect', function(){
         //断开连接
-        if(socket.username in usocket) {
-            delete(usocket[socket.username]);
+        if(socket.username in uSocket) {
+            delete(uSocket[socket.username]);
             user.splice(user.indexOf(socket.username), 1);
         }
         console.log(user);

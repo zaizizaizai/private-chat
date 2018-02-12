@@ -1,6 +1,7 @@
 # 一对一聊天
-
-# 演示
+基于socket.io
+# 效果图
+ !["效果图"](./www/src/img/chat.png)
 
 原地址github: https://github.com/chanywn/PrivateChat
 
